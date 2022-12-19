@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1584205420 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1669981964 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\funcoesgenericas.c
+	<stdio.h>
+	<string.h>
+	"funcoesGenericas.h"
+
+1669981882 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\funcoesgenericas.h
+
