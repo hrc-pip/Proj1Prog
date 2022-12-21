@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1671656402 source:c:\users\maria\onedrive\ambiente de trabalho\p1\projp1\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1671655921 source:c:\users\maria\onedrive\ambiente de trabalho\p1\projp1\gestaoportateis.c
+	<stdio.h>
+	<string.h>
+	"gestaoportateis.h"
+
+1671654183 c:\users\maria\onedrive\ambiente de trabalho\p1\projp1\gestaoportateis.h
+
