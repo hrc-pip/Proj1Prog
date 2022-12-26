@@ -1,12 +1,27 @@
 # depslib dependency file v1.0
-1584205420 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\main.c
+1671643448 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\main.c
 	<stdio.h>
 	<stdlib.h>
+	<ctype.h>
+	"funcoesGenericas.h"
+	"gestaoPortateis.h"
+	"gestaoRequisicoes.h"
 
 1669981964 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\funcoesgenericas.c
 	<stdio.h>
 	<string.h>
 	"funcoesGenericas.h"
 
-1669981882 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\funcoesgenericas.h
+1671641802 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\funcoesgenericas.h
+
+1671643933 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\gestaoportateis.c
+	<stdio.h>
+	"gestaoPortateis.h"
+
+1671643936 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\gestaoportateis.h
+	"funcoesGenericas.h"
+
+1671643075 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\proj\gestaorequisicoes.h
+	"funcoesGenericas.h"
+	"gestaoPortateis.h"
 

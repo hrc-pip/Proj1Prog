@@ -35,14 +35,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="funcoesGenericas.h" />
-		<Unit filename="gestaoAlunos.c">
+		<Unit filename="gestaoPortateis.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="gestaoAlunos.h" />
-		<Unit filename="gestaoReservas.c">
+		<Unit filename="gestaoPortateis.h" />
+		<Unit filename="gestaoRequisicoes.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="gestaoReservas.h" />
+		<Unit filename="gestaoRequisicoes.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

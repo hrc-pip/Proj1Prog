@@ -2,30 +2,71 @@
 #include <stdlib.h>
 
 
+#include "funcoesGenericas.h"
+#include "gestaoportateis.h"
+
+
+char menu (int quantPortateis, int quantDisponiveis);
+
 int main()
 {
 
-     char processador;
-        printf("escolha um dos processador disponiveis para o seu portatil:\na)i3\nb)i5\nc)i7\n");
-        scanf ("%c", &processador);
+    tipoPortatil vetorPortateis[MAXPORTATEIS];
+    int quantPortateis = lerFicheiroBinarioPortatil(vetorPortateis, quantPortateis);
 
 
-    switch (processador){
-        case 'a':
-            printf("processador escolhido: i3");
+    char opcao;
+
+    do
+    {
+        int quantDisponiveis=quantPortateisDisponiveis(vetorPortateis,quantPortateis);
+        opcao = menu(quantPortateis, quantDisponiveis);
+        switch (opcao)
+        {
+        case 'A':
+            acrescentaPortatil(vetorPortateis, &quantPortateis);
             break;
-        case 'b':
-            printf("processador escolhido: i5");
+
+        case 'M':
+            mostrarTodosPortateis(vetorPortateis, quantPortateis);
             break;
-        case 'c':
-            printf("processador escolhido: i7");
+
+        case 'L':
+            alteraLocalizacao(vetorPortateis, quantPortateis);
             break;
+
+        case 'F':
+            gravaFicheiroBinarioPortatil(vetorPortateis, quantPortateis);
+            break;
+
         default:
-            printf("\nERRO: escolha uma opcao valida.");
+            printf("\nERRO: opcao desconhecida\n");
         }
-
-
-
+    }
+    while (opcao != 'F');
 
     return 0;
+}
+
+//--------- IMPLEMENTAÇÃO das FUNÇÕES -----
+
+
+char menu (int quantPortateis, int quantDisponiveis)
+{
+    char opcao;
+
+    printf("\n\n********************** MENU PRINCIPAL ********************** \n\n");
+    printf("Número de Portateis Inseridos: %d\n", quantPortateis);
+    printf("Portateis Disponiveis: %d \n\n", quantDisponiveis);
+    printf("A - Acrescenta Portatil\nM - Mostrar Dados\n");
+    printf("L - Alterar Localizacao do Portatil\n");
+    printf("F - Fim\n");
+    printf("\t\tOPCAO -> ");
+
+    scanf("%c", &opcao);
+    limparBuffer();
+
+    opcao = toupper(opcao);
+
+    return opcao;
 }

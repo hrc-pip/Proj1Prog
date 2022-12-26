@@ -10,3 +10,24 @@
 
 1671654183 c:\users\maria\onedrive\ambiente de trabalho\p1\projp1\gestaoportateis.h
 
+1669981964 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\funcoesgenericas.c
+	<stdio.h>
+	<string.h>
+	"funcoesGenericas.h"
+
+1671641802 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\funcoesgenericas.h
+
+1672067213 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoportateis.c
+	<stdio.h>
+	<string.h>
+	"gestaoportateis.h"
+
+1672067043 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoportateis.h
+	"funcoesGenericas.h"
+
+1672067173 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funcoesGenericas.h"
+	"gestaoportateis.h"
+

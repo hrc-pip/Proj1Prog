@@ -3,130 +3,249 @@
 #include "gestaoportateis.h"
 
 
- tipodata lerdata (char msg []){
-        tipodata data;
-        int controlo, diaMax;
+// =====================================================================================
+void mostrarUmPortatil(tipoPortatil portatil)
+{
+    printf("\n\tNr.: %d\n", portatil.num);
+    printf("\tDesignacao: %s\n", portatil.designacao);
+    printf("\tProcessador.: %d\n", portatil.processador);
+    printf("\tRAM.: %d Gb\n", portatil.ram);
 
+    switch(portatil.estado)
+    {
+    case DISPONIVEL:
+        printf("\tEstado.: DISPONIVEL\n");
+        break;
+    case REQUISITADO:
+        printf("\tEstado.: REQUISITADO\n");
+        break;
+    case AVARIADO:
+        printf("\tEstado.: AVARIADO\n");
+        break;
+    }
+
+    switch(portatil.localizacao)
+    {
+    case RESIDENCIAS:
+        printf("\tLocalizacao.: RESIDENCIAS\n");
+        break;
+    case CAMPUS1:
+        printf("\tLocalizacao.: CAMPUS1\n");
+        break;
+    case CAMPUS2:
+        printf("\tLocalizacao.: CAMPUS2\n");
+        break;
+    case CAMPUS5:
+        printf("\tLocalizacao.: CAMPUS5\n");
+        break;
+    }
+
+    printf("\tData: ");
+    escreverData(portatil.dataAquisicao);
+    printf("\n\tValor Equipamento: %d\n", portatil.valorEquipamento);
+    printf("\n\tTotal Requisicoes.: %d\n", portatil.totalRequisicao);
+    printf("\n\tTotal Requisicoes.: %d\n", portatil.totalAvarias);
+
+}
+
+
+// =====================================================================================
+void mostrarTodosPortateis(tipoPortatil vetorPortateis[], int quantPortateis)
+{
+    int i;
+
+    printf("\n---- LISTAGEM dos POSTATEIS -----\n");
+    for (i=0; i < quantPortateis; i++)
+    {
+        printf("\n\nPortatil: %d", i+1);
+        mostrarUmPortatil(vetorPortateis[i]);
+    }
+}
+
+
+// =====================================================================================
+int procuraPortatil(int numPortatil, tipoPortatil vetorPortateis[], int quantPortateis)
+{
+    int i, pos=-1;
+
+    for (i=0; i < quantPortateis; i++)
+    {
+        if (numPortatil == vetorPortateis[i].num)
+        {
+            pos = i;
+            i = quantPortateis;
+        }
+    }
+
+    return pos;
+}
+
+
+// =====================================================================================
+int lerQuantidadePortateis(void)
+{
+    int num;
+
+    num = lerInteiro("\nIndique a quantidade de portateis inscritos", 0, MAXPORTATEIS);
+
+    return num;
+}
+
+
+// =====================================================================================
+void acrescentaPortatil (tipoPortatil vetorPortateis[], int *quantPortateis)
+{
+    int pos, opcao=0;
+
+    if (*quantPortateis == MAXPORTATEIS)
+    {
+        printf("\nATENCAO: impossivel inscrever mais portateis. Lotacao esgota\n ");
+    }
+    else
+    {
         do
         {
-            do{
-            printf ("%s", msg);
-            controlo = scanf ("%d-%d-%d", &data.dia, &data.mes, &data.ano);
-            limparbuffer ();
-
-            if (controlo !=3)
+            vetorPortateis[*quantPortateis] = lerDadosPortatil();
+            pos = procuraPortatil(vetorPortateis[*quantPortateis].num, vetorPortateis, *quantPortateis);
+            if (pos != -1) // significa que o portatil já existe no vetor
             {
-                printf("\n ERRO: formato de data invalido\n ");
-            }
-            }
-            while (controlo !=3);
-
-        if (data.ano < MINANO||data.ano>MAXANO)         //validaçao do ano
-        {
-            printf("\n ERRO: ano invalido, o ano devera pertencer ao intrevalo [%d, %d]", MINANO, MAXANO);
-        }
-        else
-        {
-           switch (data.mes){
-           case 1:
-           case 3:
-           case 5:
-           case 7:
-           case 8:
-           case 10:
-           case 12:
-            diaMax=31;
-            break;
-           case 4:
-           case 6:
-           case 9:
-           case 11:
-            diaMax=30;
-            break;
-           case 2:
-            if (data.ano%400==0 || (data.ano%4==0&&data.ano%100!=0))
-            {
-                //ano bissexto
-                diaMax=29;
+                printf("\nERRO: o portatil ja se encontra inscrito\n");
+                opcao=lerInteiro("Quer inserir outro portatil (1 - Sim, 0 - Nao)", 0, 1);
             }
             else
             {
-                diaMax=28;
+                vetorPortateis[*quantPortateis].estado = DISPONIVEL; // indicador de que o portatil é inserido disponivel
+                (*quantPortateis)++;
+                opcao = 0;
             }
-            break;
-           default:
-            printf("\n\n ERRO: mes incorreto\n\n");
-            diaMax = data.dia;
-           }
-           if (data.dia<1 || data.dia>diaMax)
-           {
-               printf("\n ERRO: dia incorreto");
-           }
-       }
+        }
+        while(opcao == 1);
     }
-    while (data.ano<MINANO || data.ano>MAXANO||
-           data.mes<1 || data.mes>12||
-           data.dia<1 || data.dia>diaMax);
-    return data;
 }
 
-    void limparbuffer(void)
+
+// =====================================================================================
+tipoPortatil lerDadosPortatil()
+{
+    tipoPortatil port;
+
+
+    port.num = lerInteiro("\nNr. Portatil", 0, MAXPORTATEIS);
+    lerString("Designacao: ", port.designacao, MAXSTRING);
+    port.processador = lerInteiro("Processador (1-i3 | 2-i5 | 3-i7) ", I3, I7);
+    port.ram = lerInteiro("RAM",1, MAXRAM);
+    port.localizacao = lerInteiro("Localizacao (0-RESIDENCIAS, 1-CAMPUS1, 2-CAMPUS2, 3-CAMPUS5)", RESIDENCIAS, CAMPUS5);
+    port.dataAquisicao = lerData("Data de Aquisicao (dd-mm-aaaa): ");
+    port.valorEquipamento = lerInteiro("Valor do Portatil", 0, 99999);
+    port.totalRequisicao = 0;
+    port.totalAvarias = 0;
+
+    return port;
+}
+
+
+// =====================================================================================
+int quantPortateisDisponiveis(tipoPortatil vetorPortateis[], int quantPorts)
+{
+    int quantDispo = 0;
+    for(int i = 0; i < quantPorts; i++)
+    {
+        if(vetorPortateis[i].estado == DISPONIVEL)
         {
-            char letra;
-            do
-            {
-                letra=getchar();
-            }
-            while (letra!='\n' && letra!=EOF);
-
+            quantDispo++;
         }
-
-
-
-
- int numidentificador(){
-
-     int numidentificador;
-
-   printf ("introduza o numero do seu portatil: ");
-   scanf ("%d", &numidentificador);
-
-   do {
-       printf ("\nERRO: numero de portatil invalido. devera introduzir um numero entre 1 e 30.");
-       scanf ("%d", &numidentificador);
     }
-     while ( numidentificador<=0 && numidentificador>30);
-
-    return numidentificador;
- }
+    return quantDispo;
+}
 
 
+// =====================================================================================
+void alteraLocalizacao(tipoPortatil vetorPortateis[], int quantPorts)
+{
+    int num, posPort;
+    if(quantPorts != 0)
+    {
+
+        num = lerInteiro("\nNr. Portatil", 0, MAXPORTATEIS);
+        posPort = procuraPortatil(num, vetorPortateis, quantPorts);
+        if( posPort != -1)
+        {
+            vetorPortateis[num].localizacao = lerInteiro("Localizacao (0 - RESIDENCIAS, 1 - CAMPUS1, 2 - CAMPUS2, 3 - CAMPUS5)", RESIDENCIAS, CAMPUS5);
+            printf("Localizacao alterada com sucesso!!");
+        } else {
+            printf("\n\tERRO!! Nao existe nenhum portatil com este numero");
+        }
+        printf("\nERRO!! Nao existem portateis");
+    }
+
+}
 
 
- char processador ()
- {
+// =====================================================================================
+void gravaFicheiroBinarioPortatil(tipoPortatil vetorPortateis[], int quantPorts)
+{
+    FILE *fich;
+    int controlo;
 
-  char processador;
-        printf("escolha um dos processador disponiveis para o seu portatil:\na)i3\nb)i5\nc)i7\n");
-        scanf ("%c", &processador);
+    fich = fopen("dadosPortateis.bin", "wb");
 
-
-    switch (processador){
-        case 'a':
-            printf("processador escolhido: i3");
-            break;
-        case 'b':
-            printf("processador escolhido: i5");
-            break;
-        case 'c':
-            printf("processador escolhido: i7");
-            break;
-        default:
-            printf("\nERRO: escolha uma opcao valida.");
+    if (fich == NULL)
+    {
+        printf("\nERRO: Falha na abertura do ficheiro\n");
+    }
+    else
+    {
+        controlo = fwrite(&quantPorts, sizeof(int), 1, fich);
+        if (controlo != 1)
+        {
+            printf("\nERRO: Falha na gravacao dos dados\n");
+        }
+        else
+        {
+            controlo = fwrite(vetorPortateis, sizeof(tipoPortatil), quantPorts, fich);
+            if (controlo != quantPorts)
+            {
+                printf("\nERRO: Falha na gravacao dos dados\n");
+            }
         }
 
+        fclose(fich);
+    }
 
- }
+}
 
 
+// =====================================================================================
+int lerFicheiroBinarioPortatil(tipoPortatil vetorPortateis[], int quantPorts)
+{
+    FILE *fich;
+    int controlo;
 
+    fich = fopen("dadosPortateis.bin", "rb");
+
+    if (fich == NULL)
+    {
+        quantPorts = 0;
+    }
+    else
+    {
+        controlo = fread(&quantPorts, sizeof(int), 1, fich);
+        if (controlo != 1)
+        {
+            printf("\nERRO: Falha na leitura dos dados\n");
+        }
+        else
+        {
+            controlo = fread(vetorPortateis, sizeof(tipoPortatil), quantPorts, fich);
+            if (controlo != quantPorts)
+            {
+                printf("\nERRO: Falha na leitura dos dados\n");
+                quantPorts = 0;
+            }
+        }
+
+        fclose(fich);
+    }
+
+    return quantPorts;
+}

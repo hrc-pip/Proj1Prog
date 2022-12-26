@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="funcoesGenericas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funcoesGenericas.h" />
 		<Unit filename="gestaoportateis.c">
 			<Option compilerVar="CC" />
 		</Unit>
