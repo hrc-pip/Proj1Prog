@@ -4,6 +4,7 @@
 
 #include "funcoesGenericas.h"
 #include "gestaoportateis.h"
+#include "avarias.h"
 
 
 char menu (int quantPortateis, int quantDisponiveis);

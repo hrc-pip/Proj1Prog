@@ -31,6 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="avarias.c">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="avarias.h" />
 		<Unit filename="funcoesGenericas.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -31,3 +31,18 @@
 	"funcoesGenericas.h"
 	"gestaoportateis.h"
 
+1673003975 source:c:\users\maria\onedrive\ambiente de trabalho\github\proj1prog\projp1\funcoesgenericas.c
+	<stdio.h>
+	<string.h>
+	"funcoesGenericas.h"
+
+1673003975 c:\users\maria\onedrive\ambiente de trabalho\github\proj1prog\projp1\funcoesgenericas.h
+
+1673003975 source:c:\users\maria\onedrive\ambiente de trabalho\github\proj1prog\projp1\gestaoportateis.c
+	<stdio.h>
+	<string.h>
+	"gestaoportateis.h"
+
+1673003975 c:\users\maria\onedrive\ambiente de trabalho\github\proj1prog\projp1\gestaoportateis.h
+	"funcoesGenericas.h"
+
