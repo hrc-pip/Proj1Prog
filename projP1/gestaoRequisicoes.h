@@ -90,4 +90,4 @@ void utenteMenorQuant(tipoRequisicao vetorRequisicoes[], int quantRequi);
 // calcula e exibe qual a devolução mais recente
 void devolucaoMaisRecente(tipoRequisicao vetorRequisicoes[], int quantRequi, tipoPortatil vetorPortateis[]);
 
-#endif // GESTAORESERVAS_H_INCLUDED
+#endif // GESTAOREQUISICOES_H_INCLUDED
