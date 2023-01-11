@@ -3,17 +3,17 @@
 
 #include "funcoesGenericas.h"
 
-#define MAXPORTATEIS 30  //n� m�ximo de portateis
+#define MAXPORTATEIS 30  //nº máximo de portateis
 #define MAXSTRING 50
 
 #define I3 1
-#define I5 2  // op��es de processadores
+#define I5 2  // opções de processadores
 #define I7 3
 
 #define MAXRAM 64
 
 #define DISPONIVEL 1
-#define REQUISITADO 2  // estados do port�til
+#define REQUISITADO 2  // estados do portatil
 #define AVARIADO 3
 
 #define RESIDENCIAS 0
@@ -24,38 +24,46 @@
 
 typedef struct
 {
-    int num;
-    char designacao[MAXSTRING];
-    int processador;
+    int num;  // chave primária
+    char designacao[MAXSTRING]; 
+    int processador;   // [1,3]
     int ram;
-    int estado;
-    int localizacao;
+    int estado;  // [1,3]
+    int localizacao;  // [0,3]
     tipoData dataAquisicao;
     int valorEquipamento;
-    int totalRequisicao;
-    int totalAvarias;
+    int quantTotalRequisicao;
+    int quantTotalAvarias;
+    int quantTotalDiasRequisitados;
 } tipoPortatil;
 
 
-int lerQuantidadePortateis(void);
+// devolve a posição no vetorPortatil, se não existir devolve -1
+int procuraPortatil (int numPortatil, tipoPortatil vetorPortateis[], int quantidadePortateis);
 
-tipoPortatil lerDadosPortatil();
+// devolve os dados necessários para criar um novo registo de um portátil
+tipoPortatil lerDadosPortatil(tipoPortatil port);
 
-void acrescentaPortatil (tipoPortatil vetorPortateis[], int *quantPorts);
+// cria um novo registo no vetorPortateis
+void acrescentaPortatil (tipoPortatil vetorPortateis[], int *quantidadePortateis);
 
-int procuraPortatil (int numAluno, tipoPortatil vetorPortateis[], int quantPorts);
-
+// escreve no ecrã todos os dados necessários de um portátil
 void mostrarUmPortatil(tipoPortatil portatil);
 
-void mostrarTodosPortateis(tipoPortatil vetorPortateis[], int quantPorts);
+// devolve o número de portateis disponíveis (.estado == DISPONIVEL)
+int quantidadePortateisDisponiveis(tipoPortatil vetorPortateis[], int quantidadePortateis);
 
-int quantPortateisDisponiveis(tipoPortatil vetorPortateis[], int quantPorts);
+// altera somente a localizacao de um portatil
+void alteraLocalizacao(tipoPortatil vetorPortateis[], int quantidadePortateis);
 
-void alteraLocalizacao(tipoPortatil vetorPortateis[], int quantPorts);
+// guarda os dados do vetorPortateis no fich dadosPortateis.bin
+void gravaFicheiroBinarioPortatil(tipoPortatil vetorPortateis[], int quantidadePortateis);
 
-void gravaFicheiroBinarioPortatil(tipoPortatil vetorPortateis[], int quantPorts);
+// lê os dados do fich binario para não perder o progresso de usos anteriores
+int lerFicheiroBinarioPortatil(tipoPortatil vetorPortateis[], int quantidadePortateis);
 
-int lerFicheiroBinarioPortatil(tipoPortatil vetorPortateis[], int quantPorts);
+// escreve a percentagem de cada processador
+void percentagemProcessador(tipoPortatil vetorPortateis[], int quantidadePortateis);
 
 
 #endif // GESTAOPORTATEIS_H_INCLUDED

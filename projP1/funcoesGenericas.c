@@ -3,6 +3,46 @@
 #include "funcoesGenericas.h"
 
 
+int converteDataDias(tipoData data)
+{
+    int totalDias, anosDias, mesesDias, i;
+    totalDias = 0;
+    anosDias = (data.ano-MIN_ANO)*365; /* Converte em dias os anos anteriores */
+    for (i=MIN_ANO; i<data.ano; i++)
+    {
+        if((i%400==0) || (i%4==0 && i%100!=0))
+        {
+        anosDias++; /* Ano bissexto */
+        }
+    }
+    mesesDias = 0; /* Converte em dias os meses decorridos(do ano da data) */
+    for (i=1; i<data.mes; i++)
+    {
+        switch (i)
+        {
+            case 2:
+                mesesDias += 28;
+                if((data.ano%400==0) || (data.ano%4==0 && data.ano%100!=0))
+                {
+                    mesesDias++; /* Ano bissexto */
+                }
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                mesesDias += 30;
+                break;
+
+            default:
+                mesesDias += 31;
+        }
+    }
+    totalDias = anosDias + mesesDias + data.dia;
+    return totalDias;
+}
+
 tipoData lerData(char msg[])
 {
     tipoData data;
@@ -23,11 +63,11 @@ tipoData lerData(char msg[])
         }
         while (controlo != 3);
 
-        if (data.ano < MIN_ANO || data.ano > MAX_ANO) // Validação do ano
+        if (data.ano < MIN_ANO || data.ano > MAX_ANO) // ValidaÃ§Ã£o do ano
         {
             printf("\nERRO: Ano incorreto, devera pertencer ao intervalo[%d, %d]\n\n", MIN_ANO, MAX_ANO);
         }
-        else  // validação do mês
+        else  // validaÃ§Ã£o do mÃªs
         {
             switch(data.mes)
             {
@@ -111,7 +151,7 @@ int lerInteiro (char msg[], int limMin, int limMax)
 
         if (num < limMin || num > limMax || controlo == 0)
         {
-            printf("\nERRO: o valor nao pertence ao intervalo [%d, %d]", limMin, limMax);
+            printf("\nERRO: o valor nao pertence ao intervalo [%d, %d] \n", limMin, limMax);
         }
     }
     while (num < limMin || num > limMax || controlo == 0);

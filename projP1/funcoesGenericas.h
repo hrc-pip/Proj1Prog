@@ -10,6 +10,7 @@ typedef struct{
     int dia, mes, ano;
 } tipoData;
 
+int converteDataDias(tipoData data);
 tipoData lerData(char msg[]);
 void escreverData(tipoData data);
 float lerFloat (char msg[], float limMin, float limMax);

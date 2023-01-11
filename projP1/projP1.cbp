@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="funcoesGenericas.h" />
+		<Unit filename="gestaoRequisicoes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gestaoRequisicoes.h" />
 		<Unit filename="gestaoportateis.c">
 			<Option compilerVar="CC" />
 		</Unit>

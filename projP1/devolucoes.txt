@@ -1,0 +1,86 @@
+Quantidade De Devolucoes.: 6
+
+	Codigo da Requisicao.: primeira
+		Nome Utente.: henrique
+		Tipo de Utente.: ESTUDANTE
+		Data de Requisicao.: 10-1-2023
+		Prazo da Requisicao.: 1 dia(s)
+		Estado da Requisicao.: CONCLUIDA
+		Data de Devolucao.: 12-1-2023
+		Duracao da Requisicao.: 2 dia(s)
+		Local da Devolucao.: CAMPUS5
+		Valor da Multa.: 10 
+		Nr. Portatil.: 2 
+			Processador.: I7
+			Memoria RAM.: 16 Gb
+
+	Codigo da Requisicao.: second
+		Nome Utente.: eduardo
+		Tipo de Utente.: TECNICOADMIN
+		Data de Requisicao.: 10-3-2023
+		Prazo da Requisicao.: 10 dia(s)
+		Estado da Requisicao.: CONCLUIDA
+		Data de Devolucao.: 20-3-2050
+		Duracao da Requisicao.: 9872 dia(s)
+		Local da Devolucao.: CAMPUS2
+		Valor da Multa.: 98620 
+		Nr. Portatil.: 1 
+			Processador.: I5
+			Memoria RAM.: 8 Gb
+
+	Codigo da Requisicao.: teste
+		Nome Utente.: henrique
+		Tipo de Utente.: DOCENTE
+		Data de Requisicao.: 11-1-2023
+		Prazo da Requisicao.: 37 dia(s)
+		Estado da Requisicao.: CONCLUIDA
+		Data de Devolucao.: 12-1-2023
+		Duracao da Requisicao.: 1 dia(s)
+		Local da Devolucao.: CAMPUS5
+		Valor da Multa.: 0 
+		Nr. Portatil.: 2 
+			Processador.: I7
+			Memoria RAM.: 16 Gb
+
+	Codigo da Requisicao.: testeFich
+		Nome Utente.: BetaTester
+		Tipo de Utente.: TECNICOADMIN
+		Data de Requisicao.: 11-1-2023
+		Prazo da Requisicao.: 25 dia(s)
+		Estado da Requisicao.: CONCLUIDA
+		Data de Devolucao.: 12-1-2023
+		Duracao da Requisicao.: 1 dia(s)
+		Local da Devolucao.: CAMPUS2
+		Valor da Multa.: 0 
+		Nr. Portatil.: 1 
+			Processador.: I5
+			Memoria RAM.: 8 Gb
+
+	Codigo da Requisicao.: 1234
+		Nome Utente.: henrique
+		Tipo de Utente.: ESTUDANTE
+		Data de Requisicao.: 12-2-2024
+		Prazo da Requisicao.: 25 dia(s)
+		Estado da Requisicao.: CONCLUIDA
+		Data de Devolucao.: 12-5-2024
+		Duracao da Requisicao.: 90 dia(s)
+		Local da Devolucao.: CAMPUS1
+		Valor da Multa.: 650 
+		Nr. Portatil.: 0 
+			Processador.: I3
+			Memoria RAM.: 4 Gb
+
+	Codigo da Requisicao.: testado
+		Nome Utente.: henrique
+		Tipo de Utente.: ESTUDANTE
+		Data de Requisicao.: 12-1-2023
+		Prazo da Requisicao.: 37 dia(s)
+		Estado da Requisicao.: CONCLUIDA
+		Data de Devolucao.: 15-3-2023
+		Duracao da Requisicao.: 62 dia(s)
+		Local da Devolucao.: CAMPUS2
+		Valor da Multa.: 620 
+		Nr. Portatil.: 0 
+			Processador.: I3
+			Memoria RAM.: 4 Gb
+
