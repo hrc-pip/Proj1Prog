@@ -17,15 +17,15 @@
 
 1673352485 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\funcoesgenericas.h
 
-1673463276 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoportateis.c
+1673519953 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoportateis.c
 	<stdio.h>
 	<string.h>
 	"gestaoportateis.h"
 
-1673459524 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoportateis.h
+1673519882 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoportateis.h
 	"funcoesGenericas.h"
 
-1673464048 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\main.c
+1673469848 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -34,23 +34,23 @@
 	"gestaoRequisicoes.h"
 	"gestaoAvarias.h"
 
-1673465876 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaorequisicoes.c
+1673520471 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaorequisicoes.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	"gestaoRequisicoes.h"
 
-1673464048 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaorequisicoes.h
+1673469974 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaorequisicoes.h
 	"funcoesGenericas.h"
 	"gestaoportateis.h"
 
-1673459563 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoavarias.c
+1673520596 source:c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoavarias.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	"gestaoAvarias.h"
 
-1673459580 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoavarias.h
+1673519717 c:\users\henri\onedrive\ambiente de trabalho\proj1prog\projp1\gestaoavarias.h
 	"funcoesGenericas.h"
 	"gestaoportateis.h"
 	"gestaoRequisicoes.h"

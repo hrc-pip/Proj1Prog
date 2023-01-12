@@ -347,6 +347,7 @@ void criarDevolucao(tipoRequisicao vetorRequisicoes[], int quantRequisicoes, tip
 
                     vetorPortateis[posPort].estado = DISPONIVEL;
                     vetorPortateis[posPort].localizacao = vetorRequisicoes[posRequisicao].localDevolucao;
+                    vetorPortateis[posPort].dataUltimaAtividade = vetorRequisicoes[posRequisicao].dataDevolucao;
                     vetorPortateis[posPort].quantTotalDiasRequisitados += vetorRequisicoes[posRequisicao].diasRequisicao;
 
 
@@ -461,10 +462,10 @@ void escreveFichTextoDevolucao (tipoRequisicao vetorRequisicoes[], int quantRequ
 
 
 // =====================================================================================
-tipoRequisicao leDadosRequi (tipoData dataAquisicao, tipoRequisicao requisicao)
+tipoRequisicao leDadosRequi (tipoData dataUltimaAtividade, tipoRequisicao requisicao)
 {
-    int diasAquisicao, diasRequisicao;
-    diasAquisicao = converteDataDias(dataAquisicao);
+    int diasUltimaAtividade, diasRequisicao;
+    diasUltimaAtividade = converteDataDias(dataUltimaAtividade);
 
     lerString("Nome do Utente: ", requisicao.nomeUtente, MAXSTRING);
     requisicao.tipoUtente = lerInteiro("Tipo Utente (1-Estudante/2-Docente/3-TecnicoAdmin) ", ESTUDANTE, TECNICOADMIN);
@@ -472,16 +473,16 @@ tipoRequisicao leDadosRequi (tipoData dataAquisicao, tipoRequisicao requisicao)
         requisicao.dataRequisicao = lerData("Qual a data de Requisicao (dd-mm-aaaa): ");
         diasRequisicao = converteDataDias(requisicao.dataRequisicao);
 
-        if( diasAquisicao > diasRequisicao){
-            printf("\nERRO!! A data de requisicao e menor que a data de aquisicao do portatil\n\n");
+        if( diasUltimaAtividade > diasRequisicao){
+            printf("\nERRO!! A data de requisicao e menor que a data da ultima atividade do portatil  - %d-%d-%d\n\n",dataUltimaAtividade.dia,dataUltimaAtividade.mes,dataUltimaAtividade.ano );
         }
-    } while (diasAquisicao > diasRequisicao);
+    } while (diasUltimaAtividade > diasRequisicao);
     requisicao.prazoRequisicao = lerInteiro("\nDias do Prazo de Requisicao ", 0, MAX_PRAZO);
     requisicao.estadoRequisicao = ATIVA;
     requisicao.dataDevolucao.dia = 01;
     requisicao.dataDevolucao.mes = 01;
     requisicao.dataDevolucao.ano = MIN_ANO;
-    requisicao.localDevolucao = 0;
+    requisicao.localDevolucao = -1;
     requisicao.diasRequisicao = 0;
     requisicao.valorMulta = 0;
 
@@ -533,7 +534,7 @@ tipoRequisicao* criarRequisicao(tipoRequisicao vetorRequisicoes[], int *quantReq
                 else
                 {
 
-                    requisicao = leDadosRequi(vetorPortateis[posPort].dataAquisicao, requisicao);
+                    requisicao = leDadosRequi(vetorPortateis[posPort].dataUltimaAtividade, requisicao);
 
 
                     vetorRequisicoes = realloc(vetorRequisicoes, (*quantRequisicoes+1) * sizeof(tipoRequisicao) );
@@ -739,6 +740,7 @@ void requisicaoSelecionada(tipoRequisicao vetorRequisicoes[], int quantRequisico
 
     }
 }
+
 
 // =====================================================================================
 int procurarRequisicao(int numPortatil, tipoRequisicao vetorRequisicoes[], int quantRequi)

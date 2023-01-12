@@ -37,7 +37,7 @@ tipoAvaria leDadosAvaria (tipoData dataBase, tipoAvaria avaria)
         diasAvaria = converteDataDias(avaria.dataAvaria);
 
         if( diasBase > diasAvaria){
-            printf("\nERRO!! A data do registo da avaria e menor qua a data da ultima atividade\n\n");
+            printf("\nERRO!! A data do registo da avaria e menor qua a data da ultima atividade do portatil - %d-%d-%d\n\n", dataBase.dia,dataBase.mes,dataBase.ano);
         }
     } while (diasBase > diasAvaria);
     avaria.dataReparacao.dia = -1;
@@ -88,6 +88,7 @@ tipoAvaria* criarReparacao(tipoAvaria vetorAvarias[], int quantAvarias, tipoPort
 
                     vetorPortateis[posPort].estado = DISPONIVEL;
                     vetorPortateis[posPort].localizacao = vetorAvarias[posAvaria].localEntrega;
+                    vetorPortateis[posPort].dataUltimaAtividade = vetorAvarias[posAvaria].dataReparacao;
 
                     printf("\n\nReparacao efetuada com sucesso\n");
 
@@ -150,7 +151,7 @@ tipoAvaria* criarAvaria(tipoAvaria vetorAvarias[], int *quantAvarias, tipoRequis
 
                 if(posRequisicao == -1)
                 {
-                    avaria = leDadosAvaria(vetorPortateis[posPort].dataAquisicao, avaria);
+                    avaria = leDadosAvaria(vetorPortateis[posPort].dataUltimaAtividade, avaria);
                 }
                 else
                 {
