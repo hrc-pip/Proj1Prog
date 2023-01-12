@@ -129,6 +129,8 @@ tipoPortatil lerDadosPortatil(tipoPortatil port)
     port.dataAquisicao = lerData("Data de Aquisicao (dd-mm-aaaa): ");
     port.valorEquipamento = lerInteiro("Valor do Portatil", 0, 99999);
 
+    port.dataUltimaAtividade = port.dataAquisicao; // ate entao essa foi a ultima atividade do portatil
+
     return port;
 }
 

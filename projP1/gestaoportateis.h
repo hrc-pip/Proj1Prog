@@ -35,6 +35,7 @@ typedef struct
     int quantTotalRequisicao;
     int quantTotalAvarias;
     int quantTotalDiasRequisitados;
+    tipoData dataUltimaAtividade; // guarda a data da ultima atividade do portatil, ex: O portátil esteve avariado de 12-01 ate 14-01, entao depois de reparado nao se pode requizita-lo neste intervalo de tempo
 } tipoPortatil;
 
 

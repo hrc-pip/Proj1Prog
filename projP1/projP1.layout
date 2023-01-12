@@ -2,19 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="gestaoRequisicoes.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2755" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="gestaoportateis.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5923" topLine="168" />
-		</Cursor>
-	</File>
 	<File name="funcoesGenericas.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="76" topLine="0" />
+			<Cursor1 position="76" topLine="43" />
 		</Cursor>
 		<Folding>
 			<Collapse line="6" />
@@ -24,24 +14,34 @@
 			<Collapse line="142" />
 		</Folding>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="gestaoportateis.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1366" topLine="0" />
+			<Cursor1 position="768" topLine="19" />
 		</Cursor>
 	</File>
-	<File name="gestaoRequisicoes.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3603" topLine="273" />
+			<Cursor1 position="1366" topLine="129" />
+		</Cursor>
+	</File>
+	<File name="gestaoRequisicoes.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2755" topLine="75" />
 		</Cursor>
 	</File>
 	<File name="funcoesGenericas.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="237" topLine="0" />
+			<Cursor1 position="237" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="gestaoportateis.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="gestaoRequisicoes.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="776" topLine="54" />
+			<Cursor1 position="3603" topLine="118" />
+		</Cursor>
+	</File>
+	<File name="gestaoportateis.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5923" topLine="175" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
